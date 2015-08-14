@@ -1,0 +1,2 @@
+include ':core'
+include ':spring4jackson2'

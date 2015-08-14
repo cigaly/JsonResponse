@@ -1,0 +1,23 @@
+description = """JsonResponseSpring4Jackson2"""
+
+dependencies {
+    compile group: 'io.jackmatthews.jsonresponse', name: 'core', version:'0.1.0'
+    compile(group: 'org.springframework', name: 'spring-context', version:'4.0.0.RELEASE') {
+		exclude(module: 'commons-logging')
+    }
+    compile group: 'org.springframework', name: 'spring-webmvc', version:'4.0.0.RELEASE'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:'2.3.1'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:'2.3.1'
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.6.6'
+    compile group: 'com.google.guava', name: 'guava', version:'13.0.1'
+    runtime group: 'org.slf4j', name: 'jcl-over-slf4j', version:'1.6.6'
+    runtime group: 'org.slf4j', name: 'slf4j-log4j12', version:'1.6.6'
+    runtime(group: 'log4j', name: 'log4j', version:'1.2.15') {
+		exclude(module: 'mail')
+		exclude(module: 'jms')
+		exclude(module: 'jmxtools')
+		exclude(module: 'jmxri')
+    }
+    testCompile group: 'junit', name: 'junit', version:'4.7'
+}
+
