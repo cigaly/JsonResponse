@@ -1,5 +1,6 @@
 package au.id.jackmatthews.jsonresponse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -9,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
-
-import com.google.common.collect.Lists;
 
 /**
  * Modified Spring internal Return value handlers, and wires up a decorator to
@@ -29,7 +28,9 @@ final class JsonResponseSupportFactoryBean implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         // Spring 4 way
-        List<HandlerMethodReturnValueHandler> handlers = Lists.newArrayList(this.adapter.getReturnValueHandlers());
+        /* TODO : Is mutablility really needed here? (C.I.) */
+        //List<HandlerMethodReturnValueHandler> handlers = Lists.newArrayList(this.adapter.getReturnValueHandlers());
+        List<HandlerMethodReturnValueHandler> handlers = new ArrayList<>(this.adapter.getReturnValueHandlers());
 
         decorateHandlers(handlers);
         this.adapter.setReturnValueHandlers(handlers);

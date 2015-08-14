@@ -1,5 +1,6 @@
 package au.id.jackmatthews.jsonresponse.example.controllers;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -14,15 +15,15 @@ import au.id.jackmatthews.jsonresponse.example.Customer;
 import au.id.jackmatthews.jsonresponse.example.mixins.AddressMixin;
 import au.id.jackmatthews.jsonresponse.example.mixins.CustomerMixin;
 
-import com.google.common.collect.Lists;
-
 @Controller
 public class CustomerController {
 
     List<Customer> data;
 
     public CustomerController() {
-        this.data = Lists.newArrayList(
+        /* TODO : Is mutablility really needed here? (C.I.) */ 
+        //this.data = Lists.newArrayList(
+        this.data = Arrays.asList(
                 new Customer(1, "Jack", "Matthews", "Jacko", new Address(1, "Hoppers Crossing", "Australia")), new Customer(1,
                         "John", "Smith", "Kiwi", new Address(1, "Sheep Town", "New Zealand")));
     }
