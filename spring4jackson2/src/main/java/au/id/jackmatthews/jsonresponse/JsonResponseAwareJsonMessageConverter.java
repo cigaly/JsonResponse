@@ -48,7 +48,7 @@ final class JsonResponseAwareJsonMessageConverter extends MappingJackson2HttpMes
         // Add support for jackson mixins
         JsonMixin[] jsonMixins = response.getJsonResponse().mixins();
         for (JsonMixin jsonMixin : jsonMixins) {
-            mapper.addMixInAnnotations(jsonMixin.target(), jsonMixin.mixin());
+            mapper.addMixIn(jsonMixin.target(), jsonMixin.mixin());
         }
 
         JsonGenerator jsonGenerator = mapper.getFactory().createGenerator(outputMessage.getBody(), encoding);
