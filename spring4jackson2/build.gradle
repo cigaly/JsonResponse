@@ -1,6 +1,10 @@
 description = """JsonResponseSpring4Jackson2"""
 project.archivesBaseName = 'jsonresponse-spring4jackson2'
 
+javadoc {
+    options.memberLevel = JavadocMemberLevel.PACKAGE
+}
+
 dependencies {
     //compile group: 'io.jackmatthews.jsonresponse', name: 'core', version:'0.1.0'
     compile project (path : ':core')
@@ -20,6 +24,7 @@ dependencies {
 //		exclude(module: 'jmxtools')
 //		exclude(module: 'jmxri')
 //    }
+    testCompile project (path : ':core')
 //    testCompile group: 'junit', name: 'junit', version:'4.12'
 }
 

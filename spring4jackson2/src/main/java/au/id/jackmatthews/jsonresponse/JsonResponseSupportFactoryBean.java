@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBody
  * @author Jack Matthews
  * 
  */
-final class JsonResponseSupportFactoryBean implements InitializingBean {
+public final class JsonResponseSupportFactoryBean implements InitializingBean {
 
     Logger log = LoggerFactory.getLogger(JsonResponseSupportFactoryBean.class);
 
